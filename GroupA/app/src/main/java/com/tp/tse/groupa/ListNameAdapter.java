@@ -11,8 +11,10 @@ import java.util.List;
 
 public class ListNameAdapter extends RecyclerView.Adapter<ListItemViewHolder> {
     private List<String> nameList;
-    public ListNameAdapter(){
-        nameList = new ArrayList<>();
+    private final NameItemListerner nameItemListerner;
+
+    public ListNameAdapter(NameItemListerner nameItemListerner) {
+        this.nameItemListerner = nameItemListerner;
     }
 
     @NonNull
@@ -20,7 +22,7 @@ public class ListNameAdapter extends RecyclerView.Adapter<ListItemViewHolder> {
     public ListItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_list_name,viewGroup, false);
-        return new ListItemViewHolder(view);
+        return new ListItemViewHolder(view,nameItemListerner);
     }
 
     @Override

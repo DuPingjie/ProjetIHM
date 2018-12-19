@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import static com.tp.tse.groupa.ListNameAdapter.*;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener ,NameItemListerner{
     private Button buttonNext;
     private RecyclerView recyclerView;
     public final static String KEY_USERNAME ="USERNAME";
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listNameAdapter=new ListNameAdapter();
+        listNameAdapter=new ListNameAdapter(this);
 
         initViews();
         initList();
@@ -63,6 +64,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 private void displayFormActivity(){
         Intent intent= new Intent(this,formActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void clickOnItem(String name) {
+        Toast.makeText(this,name, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void clickOnCross(String name) {
+        Toast.makeText(this,"Clic sur la croix de l'item:"+name,Toast.LENGTH_SHORT).show();
     }
 
 }
