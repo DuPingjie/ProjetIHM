@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class ListItemViewHolder extends RecyclerView.ViewHolder {
     private TextView textViewName;
     private String name;
-    public ListItemViewHolder(@NonNull View itemView,final NameItemListerner nameItemListerner){
+    public ListItemViewHolder(@NonNull View itemView,final NameItemListener nameItemListener){
 
         super(itemView);
 
@@ -17,7 +17,7 @@ public class ListItemViewHolder extends RecyclerView.ViewHolder {
         cardView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                nameItemListerner.clickOnItem(name);
+                nameItemListener.clickOnItem(name);
             }
         });
 
@@ -25,7 +25,7 @@ public class ListItemViewHolder extends RecyclerView.ViewHolder {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nameItemListerner.clickOnCross(name);
+                nameItemListener.clickOnCross(name);
 
             }
         });
@@ -33,6 +33,7 @@ public class ListItemViewHolder extends RecyclerView.ViewHolder {
 
     }
     public void setContent(String name){
+        this.name=name;
         textViewName.setText(name);
 
     }

@@ -17,7 +17,7 @@ import java.util.List;
 
 import static com.tp.tse.groupa.ListNameAdapter.*;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener ,NameItemListerner{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener ,NameItemListener{
     private Button buttonNext;
     private RecyclerView recyclerView;
     public final static String KEY_USERNAME ="USERNAME";

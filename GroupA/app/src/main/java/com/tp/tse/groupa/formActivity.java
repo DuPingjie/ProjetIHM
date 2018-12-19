@@ -1,6 +1,7 @@
 package com.tp.tse.groupa;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +17,16 @@ public class formActivity extends AppCompatActivity  {
     private void init(){
         buttonSave = findViewById(R.id.activity_form_button_save);
         editTextName = findViewById(R.id.activity_form_edittext_name);
-        buttonSave.setOnClickListener((view)-> {
-            saveData();
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveData();
+            }
         });
 
     }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);

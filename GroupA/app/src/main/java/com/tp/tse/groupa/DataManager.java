@@ -24,7 +24,6 @@ public class DataManager {
             INSTANCE = new DataManager();
         }
 
-
         return INSTANCE;
     }
 
